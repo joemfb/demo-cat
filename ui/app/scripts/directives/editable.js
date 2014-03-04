@@ -2,20 +2,19 @@
 
   'use strict';
 
-  var module = angular.module('demoCat');
-
-  module.directive('editable', [function () {
-    return {
-      restrict: 'AE',
-      scope: {
-        editType: '@editType',
-        editModel: '=editModel',
-        save: '&save'
-      },
-      templateUrl: '/scripts/directives/editable.html',
-      link: function($scope) {
-        $scope.mode = 'view';
-      }
-    };
-  }]);
+  angular.module('demoCat')
+    .directive('editable', [function () {
+      return {
+        restrict: 'AE',
+        scope: {
+          editType: '@editType',
+          editModel: '=editModel',
+          save: '&save'
+        },
+        templateUrl: '/scripts/directives/editable.html',
+        link: function($scope) {
+          $scope.mode = 'view';
+        }
+      };
+    }]);
 }());

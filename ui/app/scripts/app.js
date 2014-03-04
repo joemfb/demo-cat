@@ -22,4 +22,11 @@ angular.module('demoCat', ['ngRoute', 'ngCkeditor'])
       .otherwise({
         redirectTo: '/'
       });
-  }]);
+  }])
+  .filter('unsafe', function($sce) {
+    return function(val) {
+      if (typeof val === 'string' || val instanceof String) {
+        return $sce.trustAsHtml(val);
+      }
+    }
+  });
